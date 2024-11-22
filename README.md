@@ -20,7 +20,7 @@ This is an API Documentation for the Activity Library API written by Lorellie Cu
       i. /deleteBook
       j. /deleteAuthor
 
-### Endpoint: User Registration
+# Endpoint: User Registration
 
 #### URL
 `POST /user/registration`
@@ -28,7 +28,7 @@ This is an API Documentation for the Activity Library API written by Lorellie Cu
 ### Description
 This endpoint allows a new user to register by providing a `username` and `password`. Upon successful registration, a new user account will be created.
 
-##### Request Body
+### Request Body
 
 **json**
 `{
@@ -42,7 +42,7 @@ This endpoint allows a new user to register by providing a `username` and `passw
   "data": null
 }`
 
-### Endpoint: User Authentication
+# Endpoint: User Authentication
 
 #### URL
 `POST /user/authentication`
@@ -50,7 +50,7 @@ This endpoint allows a new user to register by providing a `username` and `passw
 ### Description
 This endpoint is used to authenticate a user. You must provide a valid `username` and `password` in the request body to receive a successful response and will provide a token to be used in the next transaction
 
-##### Request Body
+### Request Body
 
 **json**
 `{
@@ -66,7 +66,7 @@ This endpoint is used to authenticate a user. You must provide a valid `username
   }
 }`
 
-### Endpoint: Display Collection
+# Endpoint: Display Collection
 
 #### URL
 `POST /displayCollection`
@@ -74,7 +74,7 @@ This endpoint is used to authenticate a user. You must provide a valid `username
 ### Description
 This endpoint retrieves a collection of books along with their corresponding authors. It provides an overview of each book, including the book's title and the bok's author.
 
-##### Request Body
+### Request Body
 
 **json**
 `{
@@ -101,7 +101,7 @@ This endpoint retrieves a collection of books along with their corresponding aut
   }
 }`
 
-### Endpoint: Adding of Book Author
+# Endpoint: Adding of Book Author
 
 #### URL
 `POST /addBookAuthor`
@@ -109,7 +109,7 @@ This endpoint retrieves a collection of books along with their corresponding aut
 ### Description
 This endpoint allows you to add a new book along with its author to the collection. Upon successful creation, a token will be returned that can be used for subsequent transactions
 
-##### Request Body
+### Request Body
 
 **json**
 `{
@@ -127,7 +127,7 @@ This endpoint allows you to add a new book along with its author to the collecti
   }
 }`
 
-### Endpoint: Display Book
+# Endpoint: Display Book
 
 #### URL
 `POST /displayBook`
@@ -135,7 +135,7 @@ This endpoint allows you to add a new book along with its author to the collecti
 ### Description
 This endpoint retrieves a list of books in the collection, a token will be returned that can be used for subsequent transactions
 
-##### Request Body
+### Request Body
 
 **json**
 `{
@@ -172,7 +172,7 @@ This endpoint retrieves a list of books in the collection, a token will be retur
   }
 }`
 
-### Endpoint: Display Author
+# Endpoint: Display Author
 
 #### URL
 `POST /displayAuthor`
@@ -180,7 +180,7 @@ This endpoint retrieves a list of books in the collection, a token will be retur
 ### Description
 This endpoint retrieves details about a specific author, a token will be returned that can be used for subsequent transactions
 
-##### Request Body
+### Request Body
 
 **json**
 `{
@@ -213,7 +213,7 @@ This endpoint retrieves details about a specific author, a token will be returne
   }
 }`
 
-### Endpoint: Update Book
+# Endpoint: Update Book
 
 #### URL
 `POST /updateBook`
@@ -221,7 +221,7 @@ This endpoint retrieves details about a specific author, a token will be returne
 ### Description
 This endpoint updates the details of a specific book in the collection. Need to check the Collection Id of the book to be change and just enter the New Book Title together with the new token.
 
-##### Request Body
+### Request Body
 
 **json**
 `{
@@ -239,7 +239,7 @@ This endpoint updates the details of a specific book in the collection. Need to 
   }
 }`
 
-### Endpoint: Update Author
+# Endpoint: Update Author
 
 #### URL
 `POST /updateAuthor`
@@ -247,7 +247,7 @@ This endpoint updates the details of a specific book in the collection. Need to 
 ### Description
 This endpoint updates the details of a specific author in the collection. Need to check the Collection Id of the book to be change and just enter the New book author together with the new token.
 
-##### Request Body
+### Request Body
 
 **json**
 `{
@@ -265,7 +265,7 @@ This endpoint updates the details of a specific author in the collection. Need t
   }
 }`
 
-### Endpoint: Delete Book
+# Endpoint: Delete Book
 
 #### URL
 `POST /deleteBook`
@@ -273,7 +273,7 @@ This endpoint updates the details of a specific author in the collection. Need t
 ### Description
 This endpoint deletes a specific book from the collection. Need to check the Collection Id of the book to be deleted
 
-##### Request Body
+### Request Body
 
 **json**
 `{
@@ -290,7 +290,7 @@ This endpoint deletes a specific book from the collection. Need to check the Col
   }
 }`
 
-### Endpoint: Delete Author
+# Endpoint: Delete Author
 
 #### URL
 `POST /deleteAuthor`
@@ -298,7 +298,7 @@ This endpoint deletes a specific book from the collection. Need to check the Col
 ### Description
 This endpoint deletes a specific author from the collection. Need to check the Collection Id of the author to be deleted
 
-##### Request Body
+### Request Body
 
 **json**
 `{
