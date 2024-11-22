@@ -9,16 +9,16 @@ This is an API Documentation for the Activity Library API written by Lorellie Cu
       As part of the requirements for the subject System Integration and Architecture 2, Lorellie C. Tuyan has developed a simple activity showcasing 10 API endpoints designed specifically for a Library System. These endpoints enable core functionalities such as adding new books and authors to the database, authenticating library users, deleting records of outdated or irrelevant entries, and updating existing information, such as book titles or author details. A key feature of this system is the implementation of token rotation, where each POST request sent via ThunderClient generates a new token for the next transaction. The tokens are designed to remain active for only 5 minutes, enhancing security by limiting their validity. 
 
 2. **API Endpoints**
-      a. /user/registration
-      b. /user/authentication
-      c. /displayColllection
-      d. /addBookAuthor
-      e. /displayBook
-      f. /displayAuthor
-      g. /updateBook
-      h. /updateAuthor
-      i. /deleteBook
-      j. /deleteAuthor
+      - /user/registration
+      - /user/authentication
+      - /displayColllection
+      - /addBookAuthor
+      - /displayBook
+      - /displayAuthor
+      - /updateBook
+      - /updateAuthor
+      - /deleteBook
+      - /deleteAuthor
 
 # Endpoint: User Registration
 
@@ -30,17 +30,21 @@ This endpoint allows a new user to register by providing a `username` and `passw
 
 ### Request Body
 
-**json**
-`{
-  "username": "admin",
-  "password": "me"
-}`
+**JSON**
+  <pre>
+    {
+      "username": "admin",
+      "password": "me"
+    }
+  </pre>
 
-**result**
-`{
-  "status": "success",
-  "data": null
-}`
+**RESULT**
+  <pre>
+    {
+      "status": "success",
+      "data": null
+    }
+  </pre>
 
 # Endpoint: User Authentication
 
@@ -52,19 +56,23 @@ This endpoint is used to authenticate a user. You must provide a valid `username
 
 ### Request Body
 
-**json**
-`{
-  "username": "admin",
-  "password": "me"
-}`
+**JSON**
+  <pre>
+    {
+      "username": "admin",
+      "password": "me"
+    }
+  </pre>
 
-**result**
-`{
-  "status": "success",
-  "data": {
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI3OTgyNSwiZXhwIjoxNzMyMjgwMTI1LCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ.4h2xWTTLV3VyQZBN-MRLyXgYe6BEXMBKPsn04V3G3Kc"
-  }
-}`
+**RESULT**
+  <pre>
+    {
+      "status": "success",
+      "data": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI3OTgyNSwiZXhwIjoxNzMyMjgwMTI1LCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ.4h2xWTTLV3VyQZBN-MRLyXgYe6BEXMBKPsn04V3G3Kc"
+      }
+    }
+  </pre>
 
 # Endpoint: Display Collection
 
@@ -76,30 +84,34 @@ This endpoint retrieves a collection of books along with their corresponding aut
 
 ### Request Body
 
-**json**
-`{
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MDI1MywiZXhwIjoxNzMyMjgwNTUzLCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ._fs1NMExlHvXxN9391YzRTAdeOK30UhwxNGOM6rvfZc"
-}`
+**JSON**
+  <pre>
+    {
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MDI1MywiZXhwIjoxNzMyMjgwNTUzLCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ._fs1NMExlHvXxN9391YzRTAdeOK30UhwxNGOM6rvfZc"
+    }
+  </pre>
 
-**result**
-`{
-  "status": "success",
-  "data": {
-    "collections": [
-      {
-        "collection_id": 6,
-        "book_title": "DMMMSU-GOOD",
-        "author_name": "Loleley"
-      },
-      {
-        "collection_id": 8,
-        "book_title": "System Integ",
-        "author_name": "Einstein"
+**RESULT**
+  <pre>
+    {
+      "status": "success",
+      "data": {
+        "collections": [
+          {
+            "collection_id": 6,
+            "book_title": "DMMMSU-GOOD",
+            "author_name": "Loleley"
+          },
+          {
+            "collection_id": 8,
+            "book_title": "System Integ",
+            "author_name": "Einstein"
+          }
+        ],
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MDI1MywiZXhwIjoxNzMyMjgwNTUzLCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ._fs1NMExlHvXxN9391YzRTAdeOK30UhwxNGOM6rvfZc"
       }
-    ],
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MDI1MywiZXhwIjoxNzMyMjgwNTUzLCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ._fs1NMExlHvXxN9391YzRTAdeOK30UhwxNGOM6rvfZc"
-  }
-}`
+    }
+  </pre>
 
 # Endpoint: Adding of Book Author
 
@@ -111,21 +123,25 @@ This endpoint allows you to add a new book along with its author to the collecti
 
 ### Request Body
 
-**json**
-`{
-  "title_of_book":"API Documentation",
-  "name_of_author":"Tuyan",
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MDk5OCwiZXhwIjoxNzMyMjgxMjk4LCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ.MMbFM5shXZ2hdsXtvHmAAnqRMNUE-Wvo2xiYgbYarbQ"
-}`
+**JSON**
+  <pre>
+    {
+      "title_of_book":"API Documentation",
+      "name_of_author":"Tuyan",
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MDk5OCwiZXhwIjoxNzMyMjgxMjk4LCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ.MMbFM5shXZ2hdsXtvHmAAnqRMNUE-Wvo2xiYgbYarbQ"
+    }
+  </pre>
 
-**result**
-`{
-  "status": "success",
-  "data": {
-    "message": "very good",
-    "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MTAwOSwiZXhwIjoxNzMyMjgxMzA5LCJkYXRhIjp7InN0YXR1cyI6ImFjdGl2ZSJ9fQ.FDgEIK30_Udtj46Z6MUWhhRB4Om76-mHqktoyGXGanI"
-  }
-}`
+**RESULT**
+  <pre>
+    {
+      "status": "success",
+      "data": {
+        "message": "very good",
+        "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MTAwOSwiZXhwIjoxNzMyMjgxMzA5LCJkYXRhIjp7InN0YXR1cyI6ImFjdGl2ZSJ9fQ.FDgEIK30_Udtj46Z6MUWhhRB4Om76-mHqktoyGXGanI"
+      }
+    }
+  </pre>
 
 # Endpoint: Display Book
 
@@ -137,40 +153,44 @@ This endpoint retrieves a list of books in the collection, a token will be retur
 
 ### Request Body
 
-**json**
-`{
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMDk0NjUyNiwiZXhwIjoxNzMwOTQ2ODI2LCJkYXRhIjp7InVzZXJfaWQiOjN9fQ.g1yOCLyxCwzYKa-TBWwMgPRFt8A0O0nwZ4bHijHTrjM"
-}`
+**JSON**
+  <pre>
+    {
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMDk0NjUyNiwiZXhwIjoxNzMwOTQ2ODI2LCJkYXRhIjp7InVzZXJfaWQiOjN9fQ.g1yOCLyxCwzYKa-TBWwMgPRFt8A0O0nwZ4bHijHTrjM"
+    }
+  </pre>
 
-**result**
-`{
-  "status": "success",
-  "data": {
-    "books": [
-      {
-        "book_id": 9,
-        "book_title": "CIT"
-      },
-      {
-        "book_id": 10,
-        "book_title": "DMMMSU-GOOD"
-      },
-      {
-        "book_id": 11,
-        "book_title": "DMMMSU"
-      },
-      {
-        "book_id": 12,
-        "book_title": "System Integ"
-      },
-      {
-        "book_id": 13,
-        "book_title": "API Documentation"
+**RESULT**
+  <pre>
+    {
+      "status": "success",
+      "data": {
+        "books": [
+          {
+            "book_id": 9,
+            "book_title": "CIT"
+          },
+          {
+            "book_id": 10,
+            "book_title": "DMMMSU-GOOD"
+          },
+          {
+            "book_id": 11,
+            "book_title": "DMMMSU"
+          },
+          {
+            "book_id": 12,
+            "book_title": "System Integ"
+          },
+          {
+            "book_id": 13,
+            "book_title": "API Documentation"
+          }
+        ],
+        "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MTgxOCwiZXhwIjoxNzMyMjgyMTE4LCJkYXRhIjp7InN0YXR1cyI6ImFjdGl2ZSJ9fQ.nKHwOllQwoLNB7YHtXn632UCoTpYcjalEKVyqLPj0Fg"
       }
-    ],
-    "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MTgxOCwiZXhwIjoxNzMyMjgyMTE4LCJkYXRhIjp7InN0YXR1cyI6ImFjdGl2ZSJ9fQ.nKHwOllQwoLNB7YHtXn632UCoTpYcjalEKVyqLPj0Fg"
-  }
-}`
+    }
+  </pre>
 
 # Endpoint: Display Author
 
@@ -182,36 +202,40 @@ This endpoint retrieves details about a specific author, a token will be returne
 
 ### Request Body
 
-**json**
-`{
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MjI1NCwiZXhwIjoxNzMyMjgyNTU0LCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ.WYtmdeiPScEY2dppc30q3fRS7da7dKfYfrj2FY_Cw_c"
-}`
+**JSON**
+  <pre>
+    {
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MjI1NCwiZXhwIjoxNzMyMjgyNTU0LCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ.WYtmdeiPScEY2dppc30q3fRS7da7dKfYfrj2FY_Cw_c"
+    }
+  </pre>
 
-**result**
-`{
-  "status": "success",
-  "data": {
-    "authors": [
-      {
-        "author_id": 5,
-        "author_name": "MADELLA"
-      },
-      {
-        "author_id": 6,
-        "author_name": "Loleley"
-      },
-      {
-        "author_id": 8,
-        "author_name": "Einstein"
-      },
-      {
-        "author_id": 9,
-        "author_name": "Tuyan"
+**RESULT**
+  <pre>
+    {
+      "status": "success",
+      "data": {
+        "authors": [
+          {
+            "author_id": 5,
+            "author_name": "MADELLA"
+          },
+          {
+            "author_id": 6,
+            "author_name": "Loleley"
+          },
+          {
+            "author_id": 8,
+            "author_name": "Einstein"
+          },
+          {
+            "author_id": 9,
+            "author_name": "Tuyan"
+          }
+        ],
+        "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MjI3MCwiZXhwIjoxNzMyMjgyNTcwLCJkYXRhIjp7InN0YXR1cyI6ImFjdGl2ZSJ9fQ.2T4d4tufor2N9m4iyUSH8ghd7N4x-Sd9aGI3NlQ9-sA"
       }
-    ],
-    "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MjI3MCwiZXhwIjoxNzMyMjgyNTcwLCJkYXRhIjp7InN0YXR1cyI6ImFjdGl2ZSJ9fQ.2T4d4tufor2N9m4iyUSH8ghd7N4x-Sd9aGI3NlQ9-sA"
-  }
-}`
+    }
+  </pre>
 
 # Endpoint: Update Book
 
@@ -223,21 +247,25 @@ This endpoint updates the details of a specific book in the collection. Need to 
 
 ### Request Body
 
-**json**
-`{
-  "book_id": "5",
-  "new_book_title": "APPLICATION PROGRAMMING INTERFACE",
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MjUxOSwiZXhwIjoxNzMyMjgyODE5LCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ.hyH5U6rT-DEyzhgDq8gF7Hqk51Zgwz3LIWBwiK0gsMU"
-}`
+**JSON**
+  <pre>
+    {
+      "book_id": "5",
+      "new_book_title": "APPLICATION PROGRAMMING INTERFACE",
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MjUxOSwiZXhwIjoxNzMyMjgyODE5LCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ.hyH5U6rT-DEyzhgDq8gF7Hqk51Zgwz3LIWBwiK0gsMU"
+    }
+  </pre>
 
-**result**
-`{
-  "status": "success",
-  "data": {
-    "message": "Successfully updated an author from records.",
-    "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MjU3NywiZXhwIjoxNzMyMjgyODc3LCJkYXRhIjp7InN0YXR1cyI6ImFjdGl2ZSJ9fQ.wO0xTdgDMg5FGIElrvQokVX90IgiggzSEmY_dM7NYQE"
-  }
-}`
+**RESULT**
+  <pre>
+    {
+      "status": "success",
+      "data": {
+        "message": "Successfully updated an author from records.",
+        "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MjU3NywiZXhwIjoxNzMyMjgyODc3LCJkYXRhIjp7InN0YXR1cyI6ImFjdGl2ZSJ9fQ.wO0xTdgDMg5FGIElrvQokVX90IgiggzSEmY_dM7NYQE"
+      }
+    }
+  </pre>
 
 # Endpoint: Update Author
 
@@ -249,21 +277,25 @@ This endpoint updates the details of a specific author in the collection. Need t
 
 ### Request Body
 
-**json**
-`{
-  "author_id": "5",
-  "new_author_name": "SLIM",
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MjkxNSwiZXhwIjoxNzMyMjgzMjE1LCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ.1_IuK2ErebVMejgGCcmircOKbdS5K_dhmjQku8Ogu6w"
-}`
+**JSON**
+  <pre>
+    {
+      "author_id": "5",
+      "new_author_name": "SLIM",
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MjkxNSwiZXhwIjoxNzMyMjgzMjE1LCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ.1_IuK2ErebVMejgGCcmircOKbdS5K_dhmjQku8Ogu6w"
+    }
+  </pre>
 
-**result**
-`{
-  "status": "success",
-  "data": {
-    "message": "Successfully updated an author from records.",
-    "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4Mjk2MCwiZXhwIjoxNzMyMjgzMjYwLCJkYXRhIjp7InN0YXR1cyI6ImFjdGl2ZSJ9fQ.R-HKAXRLYpAOQbYbUhm2OS-uXOJu4VpOyE1Wp9yRz1s"
-  }
-}`
+**RESULT**
+  <pre>
+    {
+      "status": "success",
+      "data": {
+        "message": "Successfully updated an author from records.",
+        "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4Mjk2MCwiZXhwIjoxNzMyMjgzMjYwLCJkYXRhIjp7InN0YXR1cyI6ImFjdGl2ZSJ9fQ.R-HKAXRLYpAOQbYbUhm2OS-uXOJu4VpOyE1Wp9yRz1s"
+      }
+    }
+  </pre>
 
 # Endpoint: Delete Book
 
@@ -275,20 +307,24 @@ This endpoint deletes a specific book from the collection. Need to check the Col
 
 ### Request Body
 
-**json**
-`{
-  "book_id": "5",
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MzE3MCwiZXhwIjoxNzMyMjgzNDcwLCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ.2RNem2NzgbNPuZ30fXOSbq1O_TBVFCwy-Fu8awslef8"
-}`
+**JSON**
+  <pre>
+    {
+      "book_id": "5",
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MzE3MCwiZXhwIjoxNzMyMjgzNDcwLCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ.2RNem2NzgbNPuZ30fXOSbq1O_TBVFCwy-Fu8awslef8"
+    }
+  </pre>
 
-**result**
-`{
-  "status": "success",
-  "data": {
-    "message": "Successfully deleted a book from records.",
-    "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MzE5NSwiZXhwIjoxNzMyMjgzNDk1LCJkYXRhIjp7InN0YXR1cyI6ImFjdGl2ZSJ9fQ.OwX741ttlZHTy1lTNtuqcdYDr1ZXWytkPAkpROLPeQQ"
-  }
-}`
+**RESULT**
+  <pre>
+    {
+      "status": "success",
+      "data": {
+        "message": "Successfully deleted a book from records.",
+        "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MzE5NSwiZXhwIjoxNzMyMjgzNDk1LCJkYXRhIjp7InN0YXR1cyI6ImFjdGl2ZSJ9fQ.OwX741ttlZHTy1lTNtuqcdYDr1ZXWytkPAkpROLPeQQ"
+      }
+    }
+  </pre>
 
 # Endpoint: Delete Author
 
@@ -300,27 +336,33 @@ This endpoint deletes a specific author from the collection. Need to check the C
 
 ### Request Body
 
-**json**
-`{
-  "author_id": "5",
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MzMxNSwiZXhwIjoxNzMyMjgzNjE1LCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ.5S1XD-ruGPurSrTal4Msu0K7qNX-PhiBoMKLZJKznUo"
-}`
+**JSON**
+  <pre>
+    {
+      "author_id": "5",
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MzMxNSwiZXhwIjoxNzMyMjgzNjE1LCJkYXRhIjp7InVzZXJfaWQiOjZ9fQ.5S1XD-ruGPurSrTal4Msu0K7qNX-PhiBoMKLZJKznUo"
+    }
+  </pre>
 
-**result**
-`{
-  "status": "success",
-  "data": {
-    "message": "Successfully deleted an author from records.",
-    "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MzMzNSwiZXhwIjoxNzMyMjgzNjM1LCJkYXRhIjp7InN0YXR1cyI6ImFjdGl2ZSJ9fQ.HfiAQxFTavQDjStwq0pXG3np52TuMd08GDcUeYmHODU"
-  }
-}`
+**RESULT**
+  <pre>
+    {
+      "status": "success",
+      "data": {
+        "message": "Successfully deleted an author from records.",
+        "new_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VjdXJpdHkub3JnIiwiYXVkIjoiaHR0cDovL3NlY3VyaXR5LmNvbSIsImlhdCI6MTczMjI4MzMzNSwiZXhwIjoxNzMyMjgzNjM1LCJkYXRhIjp7InN0YXR1cyI6ImFjdGl2ZSJ9fQ.HfiAQxFTavQDjStwq0pXG3np52TuMd08GDcUeYmHODU"
+      }
+    }
+  </pre>
 
-**Token Usage**
+***Token Usage***
 The token is for one-time use only. This message will appear if a used token is submitted.
 
-`{
-  "status": "fail",
-  "data": {
-    "title": "Token already used."
-  }
-}`
+  <pre>
+    {
+      "status": "fail",
+      "data": {
+        "title": "Token already used."
+      }
+    }
+  </pre>
